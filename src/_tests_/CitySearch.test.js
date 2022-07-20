@@ -85,4 +85,17 @@ describe("<CitySearch />", () => {
       display: "none",
     });
   });
+
+  // cs-9
+  test("selecting a suggestion should hide the suggestions list", () => {
+    CitySearchWrapper.setState({
+      query: "Berlin",
+      showSuggestions: undefined,
+    });
+    CitySearchWrapper.find(".suggestions li").at(0).simulate("click");
+    expect(CitySearchWrapper.state("showSuggestions")).toBe(false);
+    expect(CitySearchWrapper.find(".suggestions").prop("style")).toEqual({
+      display: "none",
+    });
+  });
 });
