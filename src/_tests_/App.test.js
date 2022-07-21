@@ -95,6 +95,7 @@ describe("<App /> integration", () => {
     AppWrapper.unmount();
   });
 
+  // Test: i-5
   test("list of 32 events by default", async () => {
     const AppWrapper = mount(<App />);
     const allEvents = await getEvents();

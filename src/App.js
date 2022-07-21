@@ -10,11 +10,12 @@ class App extends Component {
   state = {
     events: [], // add state for test: i-1
     locations: [], // add state for test: i-2
-    numberOfEvents: 12,
+    numberOfEvents: 32, // add state for test i-5
     locationSelected: "all",
   };
 
   // loads events when the app loads
+  // update for test i-5
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
@@ -71,6 +72,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <h1>Come and see what's going on</h1>
         <CitySearch
           locations={this.state.locations} // pass state to CitySearch as a prop
           updateEvents={this.updateEvents} // i-3 method passed as a prop to CitySearch so that you can call it inside handleItemClicked
