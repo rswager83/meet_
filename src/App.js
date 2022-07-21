@@ -10,12 +10,21 @@ class App extends Component {
   state = {
     events: [], // add state for test: i-1
     locations: [], // add state for test: i-2
+    numberOfEvents: 12,
+    locationSelected: "all",
   };
 
   // loads events when the app loads
   componentDidMount() {
+    this.mounted = true;
     getEvents().then((events) => {
-      this.setState({ events, locations: extractLocations(events) });
+      if (this.mounted) {
+        let sliceNumber = this.state.numberOfEvents;
+        this.setState({
+          locations: extractLocations(events),
+          events: events.slice(0, sliceNumber),
+        });
+      }
     });
   }
 
@@ -24,7 +33,7 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location) => {
+  /* updateEvents = (location) => {
     getEvents().then((events) => {
       // const locationEvents = events.filter(
       //   (event) => event.location === location
@@ -35,6 +44,26 @@ class App extends Component {
           : events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents,
+      });
+    });
+  }; */
+
+  updateEvents = (location, maxNumberEvents) => {
+    if (maxNumberEvents === undefined) {
+      maxNumberEvents = this.state.numberOfEvents;
+    } else this.setState({ numberOfEvents: maxNumberEvents });
+    if (location === undefined) {
+      location = this.state.locationSelected;
+    }
+    getEvents().then((events) => {
+      let locationEvents =
+        location === "all"
+          ? events
+          : events.filter((event) => event.location === location);
+      this.setState({
+        events: locationEvents.slice(0, maxNumberEvents),
+        numberOfEvents: maxNumberEvents,
+        locationSelected: location,
       });
     });
   };
@@ -49,7 +78,10 @@ class App extends Component {
         <EventList
           events={this.state.events} // pass state to EventList as a prop of events
         />
-        <NumberOfEvents />
+        <NumberOfEvents
+          events={this.state.events}
+          updateEvents={this.updateEvents}
+        />
       </div>
     );
   }
