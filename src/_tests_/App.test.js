@@ -104,4 +104,18 @@ describe("<App /> integration", () => {
     expect(AppWrapper.state("events")).toEqual(allEvents.slice(0, sliceNumber));
     AppWrapper.unmount();
   });
+
+  // Test: i-6
+  test("App changes number of events when the NumberOfEvents component changes", async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const locations = extractLocations(mockData);
+    NumberOfEventsWrapper.setState({
+      events: locations,
+      maxNumberOfEvents: 10,
+    });
+    NumberOfEventsWrapper.find(".default").simulate("change");
+    expect(NumberOfEventsWrapper.state("maxNumberOfEvents")).toEqual(10);
+    AppWrapper.unmount();
+  });
 });

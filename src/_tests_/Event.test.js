@@ -10,7 +10,7 @@ describe("<Event /> component", () => {
   });
   // 1
   test("render event", () => {
-    expect(EventWrapper.find(".event")).toHaveLength(1);
+    expect(EventWrapper.find(".event-visible")).toHaveLength(1);
   });
   // 2
   test("render event summary", () => {
@@ -42,18 +42,18 @@ describe("<Event /> component", () => {
   });
   // 9
   test("default details window closed", () => {
-    expect(EventWrapper.state("buttonExpanded")).toBe(false);
+    expect(EventWrapper.state("buttonCollapsed")).toBe(true);
   });
   // 10
   test("show list of event details when expanded", () => {
-    EventWrapper.setState({ buttonExpanded: true });
+    EventWrapper.setState({ buttonCollapsed: true });
     EventWrapper.find(".btn-details").simulate("click");
-    expect(EventWrapper.state("buttonExpanded")).toBe(false);
+    expect(EventWrapper.state("buttonCollapsed")).toBe(false);
   });
   // 11
   test("hide list of event details when collapsed", () => {
-    EventWrapper.setState({ buttonExpanded: false });
+    EventWrapper.setState({ buttonCollapsed: false });
     EventWrapper.find(".btn-details").simulate("click");
-    expect(EventWrapper.state("buttonExpanded")).toBe(true);
+    expect(EventWrapper.state("buttonCollapsed")).toBe(true);
   });
 });

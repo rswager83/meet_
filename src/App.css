@@ -76,10 +76,10 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
+.event-visible {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
