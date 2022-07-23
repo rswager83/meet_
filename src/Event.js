@@ -10,8 +10,6 @@ class Event extends Component {
   }
 
   collapsedEvent = () => {
-    // const { event } = this.props;
-
     if (this.state.buttonCollapsed === false) {
       return (
         <div className="event-details">
