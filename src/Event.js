@@ -2,17 +2,15 @@ import React, { Component } from "react";
 
 class Event extends Component {
   state = {
-    buttonCollapsed: true, // 9
+    buttonExpanded: false, // 9
   };
 
   handleShowDetails() {
-    this.setState({ buttonCollapsed: !this.state.buttonCollapsed }); // 10a & 11a
+    this.setState({ buttonExpanded: !this.state.buttonExpanded }); // 10a & 11a
   }
 
   collapsedEvent = () => {
-    // const { event } = this.props;
-
-    if (this.state.buttonCollapsed === false) {
+    if (this.state.buttonExpanded === false) {
       return (
         <div className="event-details">
           <div className="description">
