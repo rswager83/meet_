@@ -34,7 +34,7 @@ class Event extends Component {
   };
 
   render() {
-    console.log(this.props.event);
+    // console.log(this.props.event);
     return (
       // 1-7
       <div className="event-visible">
