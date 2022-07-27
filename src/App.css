@@ -34,6 +34,7 @@ input[type="number"] {
   line-height: 20px;
   align-self: center;
   height: 38px;
+  margin-top: 50px;
 }
 
 .city {
@@ -51,7 +52,7 @@ input[type="number"] {
 
 .suggestions {
   width: 250px;
-  position: absolute;
+  
   z-index: 2;
   align-self: center;
   margin: 0;
@@ -83,6 +84,10 @@ input[type="number"] {
   border: 1px solid #ccc;
   border-radius: 4px;
   position: relative;
+}
+
+.default{
+  margin-bottom: 25px;
 }
 
 .details-btn {
@@ -128,9 +133,10 @@ input[type="number"] {
   font-family: sans-serif;
 }
 
-.Alert {
+.Alert.CitySearch {
   position: fixed;
   top: 20px;
+  
 }
 
 .data-vis-wrapper {
