@@ -28,15 +28,6 @@ class InfoAlert extends Alert {
   }
 }
 
-export { InfoAlert };
-
-// class WarningAlert extends Alert {
-//   constructor(props) {
-//     super(props);
-//     this.color = "orange";
-//   }
-// }
-
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
@@ -49,11 +40,6 @@ class ErrorAlert extends Alert {
       fontStyle: "italic",
     };
   };
-
-  setTimeOut = () => {
-    return {
-      transitionDuration: "1s",
-    };
-  };
 }
 export { ErrorAlert };
+export { InfoAlert };
