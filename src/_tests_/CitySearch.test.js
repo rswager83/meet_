@@ -13,23 +13,19 @@ describe("<CitySearch />", () => {
     );
   });
 
-  // cs-1
   test("render text input", () => {
     expect(CitySearchWrapper.find(".city")).toHaveLength(1);
   });
 
-  // cs-2
   test("renders a list of suggestions", () => {
     expect(CitySearchWrapper.find(".suggestions")).toHaveLength(1);
   });
 
-  // cs-3
   test("renders text input correctly", () => {
     const query = CitySearchWrapper.state("query");
     expect(CitySearchWrapper.find(".city").prop("value")).toBe(query);
   });
 
-  // cs-4
   test("change state when text input changes", () => {
     CitySearchWrapper.setState({
       query: "Munich",
@@ -39,7 +35,6 @@ describe("<CitySearch />", () => {
     expect(CitySearchWrapper.state("query")).toBe("Berlin");
   });
 
-  // cs-5
   test("render list of suggestions correctly", () => {
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({ suggestions: locations });
@@ -54,7 +49,6 @@ describe("<CitySearch />", () => {
     }
   });
 
-  // cs-6
   test("suggestion list match the query when changed", () => {
     CitySearchWrapper.setState({ query: "", suggestions: [] });
     CitySearchWrapper.find(".city").simulate("change", {
@@ -67,7 +61,6 @@ describe("<CitySearch />", () => {
     expect(CitySearchWrapper.state("suggestions")).toEqual(filteredLocations);
   });
 
-  // cs-7
   test("selecting a suggestion should change query state", () => {
     CitySearchWrapper.setState({
       query: "Berlin",
@@ -77,7 +70,6 @@ describe("<CitySearch />", () => {
     expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
   });
 
-  // cs-8
   test("selecting CitySearch input reveals the suggestions list", () => {
     CitySearchWrapper.find(".city").simulate("focus");
     expect(CitySearchWrapper.state("showSuggestions")).toBe(true);
@@ -86,7 +78,6 @@ describe("<CitySearch />", () => {
     });
   });
 
-  // cs-9
   test("selecting a suggestion should hide the suggestions list", () => {
     CitySearchWrapper.setState({
       query: "Berlin",

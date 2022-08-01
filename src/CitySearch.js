@@ -5,10 +5,9 @@ class CitySearch extends Component {
   state = {
     query: "",
     suggestions: [],
-    showSuggestions: false, // cs-8
+    showSuggestions: false,
   };
 
-  // Event handler for <input>
   handleInputChanged = (event) => {
     const value = event.target.value;
     const suggestions = this.props.locations.filter((location) => {
@@ -29,11 +28,11 @@ class CitySearch extends Component {
     this.setState({
       query: suggestion,
       suggestions: [],
-      showSuggestions: false, // cs-9
+      showSuggestions: false,
       infoText: "",
     });
 
-    this.props.updateEvents(suggestion); // i-3
+    this.props.updateEvents(suggestion);
   };
 
   render() {
@@ -62,9 +61,7 @@ class CitySearch extends Component {
               {suggestion}
             </li>
           ))}
-          <li
-            onClick={() => this.handleItemClicked("all")} // i-4
-          >
+          <li onClick={() => this.handleItemClicked("all")}>
             <b>See all cities</b>
           </li>
         </ul>

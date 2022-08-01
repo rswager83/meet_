@@ -2,11 +2,11 @@ import React, { Component } from "react";
 
 class Event extends Component {
   state = {
-    buttonCollapsed: true, // 9
+    buttonCollapsed: true,
   };
 
   handleShowDetails() {
-    this.setState({ buttonCollapsed: !this.state.buttonCollapsed }); // 10a & 11a
+    this.setState({ buttonCollapsed: !this.state.buttonCollapsed });
   }
 
   collapsedEvent = () => {

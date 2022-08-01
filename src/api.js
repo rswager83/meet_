@@ -8,26 +8,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-// // Required for test i-3
-// export const getEvents = async () => {
-//   return mockData;
-// };
-
-const removeQuery = () => {
-  if (window.history.pushState && window.location.pathname) {
-    var newurl =
-      window.location.protocol +
-      "//" +
-      window.location.host +
-      window.location.pathname;
-    window.history.pushState("", "", newurl);
-  } else {
-    newurl = window.location.protocol + "//" + window.location.host;
-    window.history.pushState("", "", newurl);
-  }
-};
-
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
@@ -76,12 +57,32 @@ export const getAccessToken = async () => {
   return accessToken;
 };
 
+const removeQuery = () => {
+  if (window.history.pushState && window.location.pathname) {
+    var newurl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.pushState("", "", newurl);
+  } else {
+    newurl = window.location.protocol + "//" + window.location.host;
+    window.history.pushState("", "", newurl);
+  }
+};
+
 export const getEvents = async () => {
   NProgress.start();
 
   if (window.location.href.startsWith("http://localhost")) {
     NProgress.done();
     return mockData;
+  }
+
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data ? JSON.parse(data).events : [];
   }
 
   const token = await getAccessToken();
