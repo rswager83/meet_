@@ -73,7 +73,7 @@ class App extends Component {
             getAccessToken();
           }}
         />
-        {navigator.onLine && (
+        {!navigator.onLine && (
           <OffLineAlert text={"You are currently offline!"} />
         )}
 
