@@ -24,6 +24,10 @@ p {
   margin: 5px 0;
 }
 
+.Alert p {
+  margin-top: 50px;
+}
+
 .display-none {
   display: none;
 }

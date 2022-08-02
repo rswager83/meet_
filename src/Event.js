@@ -33,6 +33,10 @@ class Event extends Component {
     }
   };
 
+  btnText = () => {
+    return `${this.state.buttonCollapsed ? "show" : "hide"} details`;
+  };
+
   render() {
     // console.log(this.props.event);
     return (
@@ -45,7 +49,7 @@ class Event extends Component {
           onClick={() => this.handleShowDetails()} // 10b & 11b
           className="btn-details" // 8
         >
-          Details
+          {this.btnText()}
         </button>
       </div>
     );
