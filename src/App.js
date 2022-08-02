@@ -109,6 +109,7 @@ class App extends Component {
           events={this.state.events}
           updateEvents={this.updateEvents}
         />
+        <h3>Number of events per city</h3>
         <div className="scatterChart">
           <ResponsiveContainer width="100%" height="100%">
             <ScatterChart
