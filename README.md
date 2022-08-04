@@ -1,8 +1,5 @@
-<p align="center">
-  <img width="360" height="300" src="public/meet-app-512.png">
-</p>
 
-![welcomescreen](public\welcomescreen.png)
+![welcomescreen](public/welcomescreen.png)
 
 A link to the app can be found [here](https://rswager83.github.io/meet_/).
 
