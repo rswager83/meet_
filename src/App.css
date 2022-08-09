@@ -7,7 +7,8 @@ html {
 
 .App {
   text-align: center;
-  /* padding: 2% 5%; */
+  display: block;
+  margin: auto;
 }
 
 .App * {
@@ -89,15 +90,12 @@ input[type="number"] {
 }
 
 .event-visible {
-  /* display: flex;
-  flex-wrap: wrap; */
   justify-content: center;
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: center;
   border: 1px solid #ccc;
   border-radius: 4px;
-  /* position: relative; */
 }
 
 .default {
@@ -161,9 +159,6 @@ input[type="number"] {
   /* min-width: 100%; */
   display: flex;
 }
-.recharts-surface {
-  overflow: visible;
-}
 
 .login-button {
   color: #494949;
@@ -221,18 +216,6 @@ input[type="number"] {
   color: #ffffff;
 }
 
-@media only screen and (min-width: 992px) {
-  .data-vis-wrapper {
-    flex-direction: row;
-  }
-  .data-vis-wrapper .recharts-responsive-container {
-    flex-basis: 50%;
-    /* max-width: 50%; */
-    /* min-width: auto;  */
-    /* margin: 0 auto; */
-  }
-}
-
 .recharts-responsive-container {
   min-height: 50vh;
   min-width: 50vw;
@@ -246,4 +229,20 @@ input[type="number"] {
 .scatter-wrapper {
   min-width: 50vh;
   min-height: 50vh;
+}
+
+.recharts-surface {
+  max-width: 900px;
+}
+
+@media only screen and (min-width: 992px) {
+  .data-vis-wrapper {
+    flex-direction: row;
+  }
+  .data-vis-wrapper .recharts-responsive-container {
+    flex-basis: 50%;
+    /* max-width: 50%; */
+    /* min-width: auto;  */
+    /* margin: 0 auto; */
+  }
 }

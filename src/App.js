@@ -71,6 +71,13 @@ class App extends Component {
     });
   };
 
+  updateNumberEvents = (numberOfEvents) => {
+    this.setState({
+      numberOfEvents,
+    });
+    this.updateEvents(undefined, numberOfEvents);
+  };
+
   getData = () => {
     const { locations, events } = this.state;
     const data = locations.map((location) => {
@@ -88,7 +95,6 @@ class App extends Component {
       return <div className="App" />;
     return (
       <div className="App">
-        {/* <div className="navbar"></div> */}
         <WelcomeScreen
           showWelcomeScreen={this.state.showWelcomeScreen}
           getAccessToken={() => {
@@ -106,6 +112,10 @@ class App extends Component {
         <CitySearch
           locations={this.state.locations}
           updateEvents={this.updateEvents}
+        />
+        <NumberOfEvents
+          updateEvents={this.updateEvents}
+          numberOfEvents={this.state.numberOfEvents}
         />
         <div className="data-vis-wrapper">
           <div className="pie-wrapper">
@@ -131,19 +141,13 @@ class App extends Component {
                   name="Number of events"
                   allowDecimals={false}
                 />
+
                 <Tooltip cursor={{ strokeDasharray: "3 3" }} />
                 <Scatter data={this.getData()} fill="#8884d8" />
               </ScatterChart>
             </ResponsiveContainer>
           </div>
         </div>
-        <EventList events={this.state.events} />
-
-        <NumberOfEvents
-          events={this.state.events}
-          updateEvents={this.updateEvents}
-        />
-
         <EventList events={this.state.events} />
       </div>
     );

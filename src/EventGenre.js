@@ -5,13 +5,16 @@ const EventGenre = ({ events }) => {
   const [data, setData] = useState([]);
 
   const getData = () => {
-    const genres = ["React", "Javascript", "Node", "jQuery", "AngularJS"];
-    const data = genres.map((genre) => {
-      const value = events.filter(({ summary }) =>
-        summary.replace(".js", "").split(" ").includes("genre")
-      ).length;
+    const genres = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
 
-      return { name: genre, value };
+    const data = genres.map((genre) => {
+      const value = events.filter((event) =>
+        event.summary.replace(".js", "").split(" ").includes(genre)
+      ).length;
+      return {
+        name: genre,
+        value: value,
+      };
     });
     return data;
   };
@@ -29,12 +32,12 @@ const EventGenre = ({ events }) => {
           cx={200}
           cy={200}
           labelLine={false}
-          outerRadius={80}
-          fill="#8884d8"
-          dataKey="value"
           label={({ name, percent }) =>
             `${name} ${(percent * 100).toFixed(0)}%`
           }
+          outerRadius={80}
+          fill="#8884d8"
+          dataKey="value"
         ></Pie>
       </PieChart>
     </ResponsiveContainer>
