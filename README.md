@@ -1,8 +1,6 @@
 
 ![welcomescreen](public/welcomescreen.png)
 
-A link to the app can be found [here](https://rswager83.github.io/meet_/).
-
 ## Objective: 
 To build a serverless, progressive web application (PWA) with React using a
 test-driven development (TDD) technique. The application uses the Google
@@ -107,6 +105,9 @@ Then: a chart will list the upcoming events taking place in the city
 ```
 
 ## Contact:
-Please feel free to contact me at nanswaglen83@gmail.com
+Please feel free to contact me and offer any type of advice. As I begin my journey through web develeopment, I am always open to advice and helpful ways to accomplish whatever task given to me. Please feel free to reach out to me!
+- Ryan Swager - nanswaglen83@gmail.com
+- Project Link - https://github.com/rswager83/Meet_/
+- GitHub Page -  https://rswager83.github.io/Meet_/
 
 
